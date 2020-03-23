@@ -117,12 +117,20 @@ public class LoginActivity extends BaseActivity {
 
                                 final User loginUser = User.getUserFromJson(user);
 
-                                                                runOnUiThread(new Runnable() {
+                                runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
                                         Toast.makeText(mContext, loginUser.getName() + "/" + loginUser.getPhone(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
+
+//                                        따온 토큰을 SharedPreference에 저장. => 로그인에 성공했다 + 내가 누군지 기록
+                                ContextUtil.setUserToken(mContext, token);
+
+
+//                                        메인화면으로 진입 => 내 프로필 정보를 출력 => 저장된 토큰을 이용할 예정.
+                                Intent intent = new Intent(mContext, MainActivity.class);
+                                startActivity(intent);
 
                             }
                             else {
@@ -135,6 +143,8 @@ public class LoginActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+
+
                                     }
                                 });
                             }
