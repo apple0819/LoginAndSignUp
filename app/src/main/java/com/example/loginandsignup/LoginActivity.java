@@ -1,7 +1,5 @@
 package com.example.loginandsignup;
 
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,8 +7,9 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.example.loginandsignup.databinding.ActivityLoginBinding;
-import com.example.loginandsignup.databinding.ActivityMainBindingImpl;
 import com.example.loginandsignup.datas.User;
 import com.example.loginandsignup.utils.ContextUtil;
 import com.example.loginandsignup.utils.ServerUtil;
