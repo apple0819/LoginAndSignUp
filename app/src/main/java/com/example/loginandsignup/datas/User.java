@@ -1,5 +1,8 @@
 package com.example.loginandsignup.datas;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -9,6 +12,22 @@ public class User implements Serializable {
     private String name;
     private String phone;
     private String memo;
+
+//    JSONOBject를 재료로 넣으면 => User 객체로 돌려주는 메쏘드 static
+    public static User getUserFromJson(JSONObject object) {
+        User user = new User();
+        try {
+            user.id =  object.getInt("id");
+            user.loginId = object.getString("login_id");
+            user.name = object.getString("name");
+            user.phone = object.getString("phone");
+            user.memo = object.getString("memo");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
 
     public User() {
     }
