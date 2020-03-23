@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.example.loginandsignup.databinding.ActivityMainBinding;
@@ -94,6 +95,24 @@ public class MainActivity extends BaseActivity {
 
                             if (code == 200) {
 //                                해당 기능이 성공적으로 동작
+//                                로그인 성공!
+
+                                JSONObject data = json.getJSONObject("data");
+                                JSONObject user = data.getJSONObject("user");
+                                String token = data.getString("token");
+
+//                                로그인한 사람의 이름/ 폰번을 토스트로
+
+                                final String name = user.getString("name");
+                                final String phone = user.getString("phone");
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(mContext, name + "/" + phone, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
                             }
                             else {
 //                                뭔가 문제가 있었다.
