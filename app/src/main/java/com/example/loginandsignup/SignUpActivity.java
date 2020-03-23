@@ -61,6 +61,7 @@ public class SignUpActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         Toast.makeText(mContext, String.format("%s님 환영합니다",signUpUser.getName()), Toast.LENGTH_SHORT).show();
+
                                     }
                                 });
                             }

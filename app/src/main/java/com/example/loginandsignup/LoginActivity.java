@@ -1,6 +1,5 @@
 package com.example.loginandsignup;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
@@ -8,10 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.TabHost;
 import android.widget.Toast;
 
-import com.example.loginandsignup.databinding.ActivityMainBinding;
+import com.example.loginandsignup.databinding.ActivityLoginBinding;
 import com.example.loginandsignup.databinding.ActivityMainBindingImpl;
 import com.example.loginandsignup.datas.User;
 import com.example.loginandsignup.utils.ContextUtil;
@@ -20,14 +18,14 @@ import com.example.loginandsignup.utils.ServerUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
-    ActivityMainBindingImpl binding = null;
+    ActivityLoginBinding binding = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
         setupEvents();
         setValues();
