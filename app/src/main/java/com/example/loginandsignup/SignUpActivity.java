@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.loginandsignup.databinding.ActivitySignUpBinding;
+import com.example.loginandsignup.datas.User;
 import com.example.loginandsignup.utils.ServerUtil;
 
 import org.json.JSONException;
@@ -52,12 +53,14 @@ public class SignUpActivity extends BaseActivity {
 
                                 JSONObject data = json.getJSONObject("data");
                                 JSONObject user = data.getJSONObject("user");
-                                final String name = user.getString("name");
+//                                final String name = user.getString("name");
+
+                                final User signUpUser = User.getUserFromJson(user);
 
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(mContext, String.format("%s님 환영합니다",name), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(mContext, String.format("%s님 환영합니다",signUpUser.getName()), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
