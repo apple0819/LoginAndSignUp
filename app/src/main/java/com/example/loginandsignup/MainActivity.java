@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.loginandsignup.databinding.ActivityMainBinding;
 import com.example.loginandsignup.databinding.ActivityMainBindingImpl;
+import com.example.loginandsignup.datas.User;
 import com.example.loginandsignup.utils.ContextUtil;
 import com.example.loginandsignup.utils.ServerUtil;
 
@@ -114,13 +115,15 @@ public class MainActivity extends BaseActivity {
 
 //                                로그인한 사람의 이름/ 폰번을 토스트로
 
-                                final String name = user.getString("name");
-                                final String phone = user.getString("phone");
+//                                final String name = user.getString("name");
+//                                final String phone = user.getString("phone");
 
-                                runOnUiThread(new Runnable() {
+                                final User loginUser = User.getUserFromJson(user);
+
+                                                                runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(mContext, name + "/" + phone, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(mContext, loginUser.getName() + "/" + loginUser.getPhone(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
