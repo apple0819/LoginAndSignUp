@@ -37,12 +37,12 @@ public class ContextUtil {
         return pref.getString(EMAIL, "");
     }
 
-    public static void setIdCheck(Context context, boolean isCheck) {
+    public static void setAutoLoginCheck(Context context, boolean isCheck) {
         SharedPreferences pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
         pref.edit().putBoolean(ID_CHECK, isCheck).apply();
     }
 
-    public static boolean isIdCheck(Context context) {
+    public static boolean isAutoLoginCheck(Context context) {
         SharedPreferences pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
         return pref.getBoolean(ID_CHECK, true);
     }
